@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cr2-intelligent-enhancer"
+version = "1.0.0"
+description = "A FastAPI application for intelligent CR2 RAW image processing using CLAHE and OpenCV."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+keywords = ["image-processing", "raw", "cr2", "fastapi", "opencv"]
+
+# The dependencies that were previously in requirements.txt
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+    "python-multipart>=0.0.6",
+    "rawpy>=0.18.0",
+    "opencv-python-headless>=4.8.0",
+    "numpy>=1.24.0",
+    "imageio>=2.31.0",
+    "jinja2>=3.1.0"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/cr2-app"
+
+# Optional: Configuration for tools if you add testing/linting later
+[tool.setuptools.packages.find]
+include = ["processors", "processors.*"]
+exclude = ["local*", "infra*", "scripts*", "frontend*", "lambda*"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
